@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = require('./routes/userRouter');
 const calcRouter = require('./routes/calcRouter');
+const alunoRouter = require('./routes/alunoRouter');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const conexao = process.env.DBCONEXAO;
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use('/users', userRouter);
 app.use('/calc', calcRouter);
+app.use('/alunos', alunoRouter);
 
 app.get('/', (request, response) => {
     const nome = request.query.nome ?? 'World';
